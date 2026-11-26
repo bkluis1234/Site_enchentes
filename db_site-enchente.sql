@@ -20,3 +20,5 @@ INSERT INTO ocorrencia (tipo, descricao, bairro, latitude, longitude)
 VALUES ('Alagamento', 'Água acumulada na via principal', 'Centro', -23.550520, -46.633308);
 
 SELECT * FROM ocorrencia;
+
+DROP DATABASE tcc_enchente;
