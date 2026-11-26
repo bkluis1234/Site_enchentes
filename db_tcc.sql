@@ -1,16 +1,22 @@
 create database tcc_enchente;
 
-use tcc_enchente;
+USE tcc_enchente;
 
-create table ocorrencia(
-	id int auto_increment primary key,
-    tipo varchar(50) not null, /*Exemplo: Alagamento, bairro, cidade, e etc*/
+DROP TABLE IF EXISTS ocorrencia;
+
+CREATE TABLE ocorrencia (
+    id int auto_increment primary key,
+    tipo varchar(50) not null,
+    descricao text not null,
+    bairro varchar(100) not null,
     latitude decimal(10, 8) not null,
     longitude decimal(11, 8) not null,
-    status enum('Em Verificação', 'Confirmado') default 'Em verificação',/*tajo de verificação*/
+    status enum('Em Verificação', 'Confirmado') default 'Em verificação',
     data_criacao timestamp default current_timestamp,
     index idx_coordenadas (latitude, longitude)
 );
 
-select * from ocorrencia;
+INSERT INTO ocorrencia (tipo, descricao, bairro, latitude, longitude) 
+VALUES ('Alagamento', 'Água acumulada na via principal', 'Centro', -23.550520, -46.633308);
 
+SELECT * FROM ocorrencia;
