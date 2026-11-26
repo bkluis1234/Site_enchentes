@@ -1,6 +1,6 @@
-create database tcc_enchente;
+create database if not exists site_enchentes;
 
-USE tcc_enchente;
+USE site_enchentes;
 
 DROP TABLE IF EXISTS ocorrencia;
 
@@ -11,7 +11,7 @@ CREATE TABLE ocorrencia (
     bairro varchar(100) not null,
     latitude decimal(10, 8) not null,
     longitude decimal(11, 8) not null,
-    status enum('Em Verificação', 'Confirmado') default 'Em verificação',
+    status enum('Em Verificação', 'Confirmado') default 'Em Verificação',
     data_criacao timestamp default current_timestamp,
     index idx_coordenadas (latitude, longitude)
 );
